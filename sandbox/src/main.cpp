@@ -1,8 +1,10 @@
-#include <tr/test.hpp>
+#include <iostream>
+
+#include <tr/types.hpp>
+#include <tr/vec2.hpp>
 
 
 int main() {
-	test::sayHello();
 
 	return 0;
 }
