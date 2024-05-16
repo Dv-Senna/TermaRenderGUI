@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+
+# Scripts
+*.sh
+*.bat
+
+
+# Output
+build/*
+
+# vscode
+.vscode/*
