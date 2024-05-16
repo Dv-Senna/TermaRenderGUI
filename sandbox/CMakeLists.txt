@@ -15,6 +15,12 @@ add_compile_definitions(
 	${SANDBOX_NAME_UPPERCASE}_VERSION_PATCH=${SANDBOX_VERSION_PATCH}
 )
 
+if (BUILD_STATIC)
+	add_compile_definitions(${PROJECT_ACRONYM_UPPERCASE}_STATIC)
+else()
+	add_compile_definitions(${PROJECT_ACRONYM_UPPERCASE}_SHARED)
+endif()
+
 include_directories(
 	./include,
 	../lib/include
