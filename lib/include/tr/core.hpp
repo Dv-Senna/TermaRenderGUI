@@ -7,12 +7,12 @@
 #elifdef TR_SHARED
 	#ifdef TR_WINDOWS
 		#ifdef TR_BUILD_LIB
-			#define SE_CORE __declspec(dllexport)
+			#define TR_CORE __declspec(dllexport)
 		#else
-			#define SE_CORE __declspec(dllimport)
+			#define TR_CORE __declspec(dllimport)
 		#endif
 	#else
-		#define SE_CORE
+		#define TR_CORE
 	#endif
 #else
 	#error You must define either TR_STATIC or TR_SHARED

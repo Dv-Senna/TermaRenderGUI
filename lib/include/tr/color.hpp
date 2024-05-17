@@ -3,6 +3,8 @@
 #include <ostream>
 #include <string>
 
+#include "tr/types.hpp"
+
 
 
 namespace tr {
@@ -22,6 +24,24 @@ namespace tr {
 
 	inline std::ostream &operator<<(std::ostream &stream, const tr::Color &color) {
 		stream << static_cast<std::string> (color);
+		return stream;
+	}
+
+
+	struct RGBColor {
+		tr::Uint8 r;
+		tr::Uint8 g;
+		tr::Uint8 b;
+		bool background {true};
+	};
+
+	inline std::ostream &operator<<(std::ostream &stream, const tr::RGBColor &color) {
+		stream << "\033[";
+		if (color.background)
+			stream << "48";
+		else
+			stream << "38";
+		stream << ";2;" << (tr::Uint)color.r << ";" << (tr::Uint)color.g << ";" << (tr::Uint)color.b << "m";
 		return stream;
 	}
 
