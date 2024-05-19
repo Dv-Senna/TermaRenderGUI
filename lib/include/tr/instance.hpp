@@ -1,5 +1,7 @@
 #pragma once
 
+#include <termio.h>
+
 
 
 namespace tr {
@@ -20,6 +22,7 @@ namespace tr {
 
 		private:
 			tr::InstanceInfos m_infos;
+			struct termios m_savedTerminal;
 	};
 
 } // namespace tr

@@ -1,7 +1,9 @@
+#include <chrono>
 #include <iostream>
 
 #include <tr/color.hpp>
 #include <tr/draw.hpp>
+#include <tr/inputManager.hpp>
 #include <tr/instance.hpp>
 #include <tr/types.hpp>
 #include <tr/vec2.hpp>
@@ -20,8 +22,17 @@ int main() {
 	tr::drawColorAtPixel(tr::Vec2f(0, 0), tr::RGBColor(0, 150, 0));*/
 
 	tr::drawTextAtPixel(tr::Vec2f(50, 10), tr::RGBColor(255, 150, 100, false), "Hello World !");
+	std::cout << std::flush;
 
-	std::cin.get();
+	auto start {std::chrono::steady_clock::now()};
+
+	while (true) {
+		tr::InputManager::update();
+		auto current {std::chrono::steady_clock::now()};
+		if (std::chrono::duration_cast<std::chrono::seconds> (current - start).count() >= 10)
+			break;
+	}
+
 
 	return 0;
 }
